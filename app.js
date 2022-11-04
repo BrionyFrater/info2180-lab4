@@ -1,6 +1,6 @@
 window.onload = function(){
     
-    search_button = document.getElementById("search-button");
+    let search_button = document.getElementById("search-button");
     
 
     search_button.addEventListener("click", () => {
@@ -14,7 +14,9 @@ window.onload = function(){
                 }
             })
             .then((data) => {
-                alert(data);
+                result = document.getElementById("result");
+                result.textContent = data;
+                
             })
             .catch((error) => {
                 console.log("The was an error : " + error);
