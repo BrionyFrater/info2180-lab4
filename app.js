@@ -6,8 +6,7 @@ window.onload = function(){
     search_button.addEventListener("click", () => {
         
         charater = document.getElementById("search-bar").value; 
-        charater.checkValidity();
-              
+       
         fetch("superheroes.php?query=" + charater)
             .then((response) => {
                 if(response.ok){
