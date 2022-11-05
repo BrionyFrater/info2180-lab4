@@ -63,10 +63,18 @@ $superheroes = [
   ], 
 ];
 
+
+$url_queries = [];
+parse_str($_SERVER["QUERY_STRING"], $url_queries);
+echo $url_queries["query"];
+
 ?>
+
+
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+

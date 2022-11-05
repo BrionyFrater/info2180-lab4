@@ -5,7 +5,9 @@ window.onload = function(){
 
     search_button.addEventListener("click", () => {
         
-        fetch("superheroes.php")
+        charater = document.getElementById("search-bar").value;       
+
+        fetch("superheroes.php?query=" + charater)
             .then((response) => {
                 if(response.ok){
                     return response.text();
@@ -15,7 +17,7 @@ window.onload = function(){
             })
             .then((data) => {
                 result = document.getElementById("result");
-                result.textContent = data;
+                result.innerHTML = data;
                 
             })
             .catch((error) => {
