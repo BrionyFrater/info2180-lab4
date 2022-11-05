@@ -66,7 +66,7 @@ $superheroes = [
 $url_queries = [];
 parse_str($_SERVER["QUERY_STRING"], $url_queries);
 
-$hero = $url_queries["query"];
+$hero = htmlspecialchars(stripslashes(trim(strval($url_queries["query"]))));
 $not_found = 0;
 
 if($hero === ""){
