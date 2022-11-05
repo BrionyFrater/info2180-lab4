@@ -63,18 +63,39 @@ $superheroes = [
   ], 
 ];
 
-
 $url_queries = [];
 parse_str($_SERVER["QUERY_STRING"], $url_queries);
-echo $url_queries["query"];
 
+$hero = $url_queries["query"];
+$not_found = 0;
+
+if($hero === ""){
+?>
+
+<ul>
+    <?php foreach ($superheroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
+</ul>
+
+<?php
+}else{
+    foreach($superheroes as $superhero){
+        if($superhero["name"] == $hero || $superhero["alias"] == $hero){
+            echo "<h3>".$superhero["alias"]."</h3>";
+            echo "<h4>".$superhero["name"]."</h4>";
+            echo "<p>".$superhero["biography"]."</p>";
+        }else{
+            $not_found++;
+        }
+    }
+
+    if($not_found >= count($superheroes)){
+        echo "SUPERHERO NOT FOUND";
+    }
+}
 ?>
 
 
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
 
