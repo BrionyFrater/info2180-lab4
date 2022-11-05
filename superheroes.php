@@ -83,7 +83,7 @@ if($hero === ""){
     foreach($superheroes as $superhero){
         if($superhero["name"] == $hero || $superhero["alias"] == $hero){
             echo "<h3>".$superhero["alias"]."</h3>";
-            echo "<h4>".$superhero["name"]."</h4>";
+            echo "<h4>A.K.A ".$superhero["name"]."</h4>";
             echo "<p>".$superhero["biography"]."</p>";
         }else{
             $not_found++;
